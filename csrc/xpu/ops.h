@@ -328,7 +328,7 @@ void deepseek_fused_indexer_q_rope_mxfp4(
     torch::Tensor& scales_out,
     torch::Tensor& weights_out);
 
-// W8A8 INT8 GEMM + per-token quantizer used by the INT8 lm_head path
+// W8A8 INT8 GEMM used by the INT8 lm_head path
 // for the INT8 lm_head path in vLLM (VLLM_XPU_LM_HEAD_INT8).
 torch::Tensor int8_gemm_w8a8(
     const torch::Tensor& A,
@@ -346,10 +346,3 @@ torch::Tensor int8_gemm_w8a8_out(
     torch::Tensor& output,
     const std::optional<torch::Tensor>& bias);
 
-std::tuple<torch::Tensor, torch::Tensor> per_token_quant_int8_xpu(
-    const torch::Tensor& x);
-
-std::tuple<torch::Tensor, torch::Tensor> per_token_quant_int8_xpu_out(
-    const torch::Tensor& x,
-    torch::Tensor& q,
-    torch::Tensor& scales);
