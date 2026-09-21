@@ -424,7 +424,3 @@ torch::Tensor int8_gemm_w8a8_out(
 std::tuple<torch::Tensor, torch::Tensor> per_token_quant_int8_xpu(
     const torch::Tensor& x);
 
-std::tuple<torch::Tensor, torch::Tensor> per_token_quant_int8_xpu_out(
-    const torch::Tensor& x,
-    torch::Tensor& q,
-    torch::Tensor& scales);

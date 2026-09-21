@@ -343,14 +343,6 @@ TORCH_LIBRARY_EXPAND(TORCH_EXTENSION_NAME, xpu_ops) {
   xpu_ops.def("per_token_quant_int8_xpu(Tensor x) -> (Tensor, Tensor)");
   xpu_ops.impl("per_token_quant_int8_xpu", torch::kXPU, &per_token_quant_int8_xpu);
 
-  xpu_ops.def(
-      "per_token_quant_int8_xpu_out(Tensor x, Tensor! q, Tensor! scales) -> "
-      "(Tensor, Tensor)");
-  xpu_ops.impl(
-      "per_token_quant_int8_xpu_out",
-      torch::kXPU,
-      &per_token_quant_int8_xpu_out);
-
 }
 
 REGISTER_EXTENSION(TORCH_EXTENSION_NAME)
