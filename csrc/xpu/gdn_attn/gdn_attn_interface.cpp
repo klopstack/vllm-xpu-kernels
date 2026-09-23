@@ -174,19 +174,19 @@ std::vector<torch::Tensor> causal_conv1d_spec(
 
   std::optional<torch::Tensor> empty_tensor{std::nullopt};
 
-  torch::Tensor q = torch::empty(
+  torch::Tensor q = torch::zeros(
       {spec_token, num_k_heads / tp_size, head_k_dim},
       torch::dtype(dtype).device(device).requires_grad(false));
-  torch::Tensor k = torch::empty(
+  torch::Tensor k = torch::zeros(
       {spec_token, num_k_heads / tp_size, head_k_dim},
       torch::dtype(dtype).device(device).requires_grad(false));
-  torch::Tensor v = torch::empty(
+  torch::Tensor v = torch::zeros(
       {spec_token, num_v_heads / tp_size, head_v_dim},
       torch::dtype(dtype).device(device).requires_grad(false));
-  torch::Tensor b = torch::empty(
+  torch::Tensor b = torch::zeros(
       {spec_token, num_v_heads / tp_size},
       torch::dtype(dtype).device(device).requires_grad(false));
-  torch::Tensor a = torch::empty(
+  torch::Tensor a = torch::zeros(
       {spec_token, num_v_heads / tp_size},
       torch::dtype(dtype).device(device).requires_grad(false));
 
